@@ -19,9 +19,8 @@ contaCorrenteRicardo._saldo = 1000;
 
 // Conta Corrente da Cliente Alice
 const contaCorrenteAlice = new ContaCorrente();
-contaCorrenteAlice.agencia = 102;
 contaCorrenteAlice.cliente = clienteAlice;
-contaCorrenteAlice._saldo = 500;
+contaCorrenteAlice.agencia = 102;
 
 // Transferência
 contaCorrenteRicardo.depositar(500);
@@ -29,4 +28,4 @@ contaCorrenteRicardo.transferir(200, contaCorrenteAlice);
 
 // Chamando Conta Corrente do Ricardo e Alice com Alterações
 console.log(contaCorrenteRicardo);
-console.log(contaCorrenteAlice);
+console.log(contaCorrenteAlice.saldo);
