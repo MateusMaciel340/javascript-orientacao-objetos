@@ -1,26 +1,16 @@
 import { Cliente } from './classes/Cliente.js';
 import { ContaCorrente } from './classes/ContaCorrente.js';
 
-// Cliente Ricardo
-const clienteRicardo = new Cliente();
-clienteRicardo.nome = 'Ricardo';
-clienteRicardo.cpf = 11111111111;
-
-// Cliente Alice
-const clienteAlice = new Cliente();
-clienteAlice.nome = 'Alice';
-clienteAlice.cpf = 22222222222;
+// Cliente Ricardo e Alice
+const clienteRicardo = new Cliente('Ricardo', 11111111111);
+const clienteAlice = new Cliente('Alice', 22222222222);
 
 // Conta Corrente do Cliente Ricardo
-const contaCorrenteRicardo = new ContaCorrente();
-contaCorrenteRicardo.agencia = 1001;
-contaCorrenteRicardo.cliente = clienteRicardo;
+const contaCorrenteRicardo = new ContaCorrente(1001, clienteRicardo);
 contaCorrenteRicardo._saldo = 1000;
 
 // Conta Corrente da Cliente Alice
-const contaCorrenteAlice = new ContaCorrente();
-contaCorrenteAlice.cliente = clienteAlice;
-contaCorrenteAlice.agencia = 102;
+const contaCorrenteAlice = new ContaCorrente(102, clienteAlice);
 
 // Transferência
 contaCorrenteRicardo.depositar(500);
@@ -28,4 +18,6 @@ contaCorrenteRicardo.transferir(200, contaCorrenteAlice);
 
 // Chamando Conta Corrente do Ricardo e Alice com Alterações
 console.log(contaCorrenteRicardo);
-console.log(contaCorrenteAlice.saldo);
+
+// Contagem da quantidade de contas correntes
+console.log(ContaCorrente.numeroDeContas);
